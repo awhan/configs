@@ -398,7 +398,7 @@
 
 ;; http://www.freebsd.org/doc/en/books/developers-handbook/emacs.html
 ;;(global-set-key "\C-m" 'newline-and-indent)
-(global-set-key "\C-m" 'reindent-then-newline-and-indent)
+;;(global-set-key "\C-m" 'reindent-then-newline-and-indent)
 
 
 
