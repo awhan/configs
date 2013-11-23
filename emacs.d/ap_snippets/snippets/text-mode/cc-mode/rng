@@ -1,0 +1,9 @@
+# name : rng
+# --
+const gsl_rng_type* grngType;            
+gsl_rng* grng;                             
+gsl_rng_env_setup();
+grngType = gsl_rng_default;
+grng = gsl_rng_alloc(grngType);
+const unsigned long seed = time(NULL);
+gsl_rng_set(grng,  seed);$0

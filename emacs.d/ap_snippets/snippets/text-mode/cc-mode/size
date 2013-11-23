@@ -1,0 +1,3 @@
+#name : size
+# --
+std::size_t $0;

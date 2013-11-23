@@ -1,0 +1,3 @@
+#name : setf
+# --
+setf(std::ios::showpos | std::ios::scientific | std::ios::showpoint);

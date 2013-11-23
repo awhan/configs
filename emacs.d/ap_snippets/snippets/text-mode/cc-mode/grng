@@ -1,0 +1,4 @@
+# name : grng
+# --
+gsl_rng* grng = gsl_rng_alloc(gsl_rng_default);
+gsl_rng_set(grng, time(NULL));

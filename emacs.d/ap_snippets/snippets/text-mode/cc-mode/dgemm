@@ -1,0 +1,5 @@
+#name : dgemm
+# --
+// C <-- alpha*A*B + beta*C :: A is mxk B is kxn C is mxn
+//cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, alpha, A, k, B, n, beta, C, n)
+cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, $0
