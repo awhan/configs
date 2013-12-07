@@ -1,0 +1,42 @@
+
+Xft.lcdfilter: lcddefault
+
+!XTerm*background: #232323
+!XTerm*foreground: white
+
+XTerm*charClass: 33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
+
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 11
+
+
+! the following allows the use of Alt key in xterm
+XTerm*metaSendsEscape: true
+
+!XTerm*eightBitInput: false
+
+*VT100*translations:    #override \n\
+      Meta <KeyPress> /:dabbrev-expand()
+
+
+XTerm*trimSelection: true
+XTerm*cursorBlink: false
+XTerm*cursorColor: Red
+
+
+!#include ".colors/xterm_zenburn"
+
+
+xdvi*shrinkFactor: 7
+xdvi.expert: on
+xdvi*pixelsPerInch: 600
+xdvi*geometry: 700x900-0+0
+XDvi.paper: a4
+
+
+Fig.latexfonts: true
+Fig.specialtext: true
+Fig.startfontsize: 10
+Fig.startgridmode: 1
+!Fig.zoom: 2.0
+Fig.splash: false

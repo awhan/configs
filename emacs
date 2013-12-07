@@ -172,11 +172,11 @@
 
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/yas")
-(add-to-list 'load-path "/home/m/.emacs.d/mySnippets")
+(add-to-list 'load-path "/home/m/.emacs.d/ap_snippets")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
 (yas/load-directory "/usr/share/emacs/site-lisp/yas/snippets")
-(yas/load-directory "/home/m/.emacs.d/mySnippets")
+(yas/load-directory "/home/m/.emacs.d/ap_snippets")
 
 ;; ;;http://code.google.com/p/yasnippet/
 ;; (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
@@ -498,3 +498,4 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+(put 'narrow-to-page 'disabled nil)
