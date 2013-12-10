@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 bashrc:
 	ln -s bashrc $HOME/.bashrc
 =======
@@ -6,3 +7,4 @@ all:
 
 bash:
 	ln -s ~/configs/bashrc ~/.bashrc
+>>>>>>> c55aa8cb1cba04bee89e4c5cbdd888dbda7baf45

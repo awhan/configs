@@ -1,0 +1,36 @@
+alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
+
+alias l='\ls --color=always'
+alias la='\ls -A --color=always'
+alias lrt='\ls --color=always -r1t'
+
+alias am='alsamixer'
+alias m='mplayer -fs -loop 0'
+alias v='vim'
+alias ..='cd ..'
+alias news='EDITOR=vim newsbeuter'
+alias eb='vim ~/.bashrc'
+alias sb='source ~/.bashrc'
+alias ev='vim ~/.vimrc'
+alias cls='clear && tmux clear-history'
+alias vifm='TERM=screen \vifm'
+
+alias ss='pacman --color=always -Ss'
+alias yu='sudo pacman --color=always -Syu'
+alias yy='sudo pacman --color=always -Syy'
+alias  q='pacman --color=always -Q'
+alias qi='pacman --color=always -Qi'
+alias qo='pacman --color=always -Qo'
+alias qm='pacman --color=always -Qm'
+alias ql='pacman --color=always -Ql'
+alias qqet='pacman --color=always -Qqet' # uneeded + explicit
+
+alias si='pacman --color=always -Si'
+alias sii='pacman --color=always -Sii'
+
+alias rnss='sudo pacman --color=always -Rnss'
+# rnss_dry_run() {
+#     \pacman -Rnsspu 
+
+alias val='valgrind -v --leak-check=full \
+--show-reachable=yes --track-origins=yes'
