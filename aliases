@@ -1,3 +1,4 @@
+# -*- mode:Shell-script -*-
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 
 alias l='\ls --color=always'

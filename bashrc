@@ -252,9 +252,7 @@ PATH=$PATH:~/bin:/opt/MATLAB/R2011a/bin:~/.gem/ruby/2.0.0/bin
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
 
-
 findsort () {
-    echo "$1"
-    find . -iname \"$1\"
-    #find . -iname \"$1\" -printf “%T@ \t %p\n” | sort -n 
-    }                           
+    find . -iname "$1" -printf '%T@ \t %p\n'
+}
+

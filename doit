@@ -1,0 +1,12 @@
+# -*- mode:Shell-script -*-
+
+payload="$1"
+
+# destination directory
+ddir="$2" 
+
+if [[ -f "$ddir/.$payload" ]]; then
+    echo "$payload already present at $ddir ..."
+else
+    echo "not present"
+fi
