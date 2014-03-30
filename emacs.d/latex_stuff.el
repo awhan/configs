@@ -43,4 +43,4 @@
 
 ;; http://www.emacswiki.org/emacs/InverseDviSearch
 (setq TeX-source-correlate-method 'source-specials)  ;; auctex 10.86  
-(TeX-source-correlate-mode)   
+(setq TeX-source-correlate-mode 1)   

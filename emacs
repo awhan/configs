@@ -1,4 +1,3 @@
-
 ; -*- mode:emacs-lisp -*-
 
 (custom-set-variables
@@ -470,3 +469,9 @@
 
 
 (load "~/.emacs.d/latex_stuff")
+
+
+(fset 'ap-table
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([5 32 92 92 return 92 104 108 105 110 101 14] 0 "%d")) arg)))
+
+(setq initial-scratch-message "")
