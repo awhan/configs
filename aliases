@@ -5,6 +5,13 @@ alias l='\ls --color=always'
 alias la='\ls -A --color=always'
 alias lrt='\ls --color=always -r1t'
 
+
+# safety features
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias ln='ln -i'
+
 alias am='alsamixer'
 alias m='mplayer -fs -loop 0'
 alias v='vim'
@@ -15,6 +22,10 @@ alias sb='source ~/.bashrc'
 alias ev='vim ~/.vimrc'
 alias cls='clear && tmux clear-history'
 alias vifm='TERM=screen \vifm'
+
+# copy pwd
+alias cpd='pwd|xsel'
+alias cdd='cd "$(xsel)"'
 
 alias ss='pacman --color=always -Ss'
 alias yu='sudo pacman --color=always -Syu'

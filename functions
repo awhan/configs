@@ -1,0 +1,118 @@
+# -*- mode:Shell-script -*-
+
+mkcd() { mkdir -p "$@" && cd "$_"; }
+
+man() {
+    env \
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "$@"
+}
+
+
+proxy() {
+    echo -n "password:"
+    read -es pass
+    export all_proxy="http://$1:$pass@$2"
+}
+
+sanitize() {
+    local x="$1"
+    x="${x//[^[:alnum:]]/ }"
+    x="${x##+([[:space:]])}"    # trim leading whitespace
+    x="${x%%+([[:space:]])}"    # trim trailing whitespace
+    x="${x//+([[:space:]])/_}"  # space(s) to underscore
+    x="${x,,}"  # lower case
+    echo "$x"
+}
+
+
+fix() {
+    # http://mywiki.wooledge.org/BashSheet#Parameter_Operations
+    # http://mywiki.wooledge.org/BashFAQ/030
+    # extglob is needed
+
+    # problems
+    # filename is file.tar.gz
+    # c++ in the filename
+
+    echo "old :: $1"
+
+    # extension
+    # if no extension is found then ${1##*.} expands so "$1" Refer http://mywiki.wooledge.org/BashFAQ/073
+    local fix_ext="${1##*.}"
+    fix_ext="$(sanitize "$fix_ext")"
+
+    # filename
+    local fix_fn="${1%.*}"                 
+    fix_fn="$(sanitize "$fix_fn")";
+
+    if [[ $fix_fn == $fix_ext ]];
+    then
+        # no extension
+        local fix_newname="$fix_fn"
+    else
+        # has extension
+        fix_newname="$fix_fn.$fix_ext"
+    fi
+    
+    echo "new :: $fix_newname"
+    
+    read -p 'change name (y/n)? '
+    if [[ $REPLY == y ]];
+    then
+        mv -iv "$1" "$fix_newname"
+    fi
+}
+
+# find files
+ff()
+{
+    local p
+    local a
+    for p in "${@:2}"; do a+=( -iname "*$p*" ); done
+    find "$1" "${a[@]}" 
+}
+
+# http://phraktured.net/config/.bashrc
+function findf() { find . -type f -iname '*'$*'*' -ls; }
+
+
+today () { \date +%Y_%m_%d; }
+now () { \date +%H_%M_%S; }
+datetime () { \date +%Y_%m_%d_%H_%M_%S; }
+
+backnew() {
+    backnew_filename=$(basename $@)
+    #echo $backnew_filename_$(today)
+    if [[ -f $@ ]]; then
+        cp -piv $@ /home/m/pacnew/"$backnew_filename"_$(today)
+    else
+        echo "not found"
+    fi
+
+    if [[ -f $@.pacnew ]]; then
+        cp -piv $@.pacnew /home/m/pacnew/"$backnew_filename".pacnew_$(today)
+    else
+        echo ".pacnew not found"
+    fi
+}
+
+ytdl () {
+    youtube-dl --title --no-mtime --no-overwrites \
+        --restrict-filenames --continue --format 18 "$1" ;
+}
+
+
+findsort () {
+    find . -iname "$1" -printf '%T@ \t %p\n'
+}
+
+
+# thanks to prince_jammys on #bash
+show() { declare -p "${1^^}"; }
