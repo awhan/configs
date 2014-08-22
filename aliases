@@ -28,7 +28,8 @@ alias cpd='pwd|xsel'
 alias cdd='cd "$(xsel)"'
 
 alias ss='pacman --color=always -Ss'
-alias yu='sudo pacman --color=always -Syu'
+alias s='pacman --color=always -S'
+alias yu='sudo pacman --color=always -Syu --needed'
 alias yy='sudo pacman --color=always -Syy'
 alias  q='pacman --color=always -Q'
 alias qi='pacman --color=always -Qi'
@@ -46,3 +47,5 @@ alias rnss='sudo pacman --color=always -Rnss'
 
 alias val='valgrind -v --leak-check=full \
 --show-reachable=yes --track-origins=yes'
+
+# vim: ft=sh
