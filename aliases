@@ -28,7 +28,7 @@ alias cpd='pwd|xsel'
 alias cdd='cd "$(xsel)"'
 
 alias ss='pacman --color=always -Ss'
-alias s='pacman --color=always -S'
+alias s='sudo pacman --color=always -S'
 alias yu='sudo pacman --color=always -Syu --needed'
 alias yy='sudo pacman --color=always -Syy'
 alias  q='pacman --color=always -Q'
