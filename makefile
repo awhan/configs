@@ -1,7 +1,15 @@
-all:
-	@echo "still working on it"
+all: bash
 
-bash:
-	ln -ivs $(CURDIR)/bashrc ~/.bashrc
-	ln -ivs $(CURDIR)/aliases ~/.aliases
-	ln -ivs $(CURDIR)/functions ~/.functions
+bash: bashrc aliases functions
+
+bashrc:
+	@./doit $(realpath bashrc) ~/.bashrc
+
+aliases:
+	@./doit $(realpath aliases) ~/.aliases
+
+functions:
+	@./doit $(realpath functions) ~/.functions
+
+
+.PHONY: bashrc aliases functions

@@ -1,12 +1,22 @@
 # -*- mode:Shell-script -*-
+# ./doit ../foo/bar ~/.baz
+#
 
-payload="$1"
-
-# destination directory
-ddir="$2" 
-
-if [[ -f "$ddir/.$payload" ]]; then
-    echo "$payload already present at $ddir ..."
-else
-    echo "not present"
+if [[ $# -ne 2 ]]; then
+    echo "usage: $0 source target"
+    echo "$0 ../foo/bar ~/.baz"
+    exit 1
 fi
+
+source=$1
+target=$2
+
+if [[ -f "$target" ]]; then
+    echo "$target already present ..."
+    echo "making backups ..."
+    cp -aiv "$target" "$target".backup_$(date +%T_%F)
+fi
+
+ln -fsv "$(realpath $source)" "$target"
+
+# vim: set ft=sh
