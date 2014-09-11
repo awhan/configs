@@ -39,8 +39,8 @@ PS1='[\u@\h \w$(__git_ps1 " (%s)")]\n\$ '
 #export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -n; history -w"
 export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="pwd:ls:cd:l:e:yy:yu"
-export HISTSIZE=50000
-export HISTFILESIZE=50000
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 shopt -s histappend
 shopt -s dotglob
 shopt -s extglob
@@ -53,3 +53,4 @@ PATH=$PATH:~/bin:/usr/local/MATLAB/R2011a/bin:~/.gem/ruby/2.0.0/bin
 
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
 
+# vim: ft=sh syn=sh
