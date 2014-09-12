@@ -5,11 +5,22 @@
 if [[ $# -ne 2 ]]; then
     echo "usage: $0 source target"
     echo "$0 ../foo/bar ~/.baz"
+    echo "$0 /home/m/configs/bashrc ~/.bashrc"
+    echo "$0 \$(realpath bashrc) ~/.bashrc"
+    echo "command line arguments were: $@"
     exit 1
 fi
 
 source=$1
 target=$2
+
+echo "source $source"
+echo "target $target"
+
+if [[ ! -f "$source" ]]; then
+    echo "no $source present ..."
+    exit 1
+fi
 
 if [[ -f "$target" ]]; then
     echo "$target already present ..."
@@ -19,4 +30,4 @@ fi
 
 ln -fsv "$(realpath $source)" "$target"
 
-# vim: set ft=sh
+# vim: set ft=sh syn=sh
