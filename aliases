@@ -1,8 +1,8 @@
 # -*- mode:Shell-script -*-
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 
-alias l='\ls --color=always'
-alias la='\ls -A --color=always'
+alias l='\ls --color=always | less -Er'
+alias la='\ls -A --color=always | less -Er'
 alias lrt='\ls --color=always -Ar1t'
 
 
@@ -27,7 +27,7 @@ alias vifm='TERM=screen \vifm'
 alias cpd='pwd|xsel'
 alias cdd='cd "$(xsel)"'
 
-alias ss='pacman --color=always -Ss'
+
 alias s='sudo pacman --color=always -S --needed'
 alias yu='sudo pacman --color=always -Syu --needed'
 alias yy='sudo pacman --color=always -Syy'
@@ -49,6 +49,6 @@ alias rnss='sudo pacman --color=always -Rnss'
 alias val='valgrind -v --leak-check=full \
 --show-reachable=yes --track-origins=yes'
 
-alias e='emacsclient -a="" -n -c'
+#alias e='emacsclient -a="" -n -c'
 
 # vim: ft=sh

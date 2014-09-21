@@ -1,5 +1,19 @@
 # -*- mode:Shell-script -*-
 
+ss () {
+    pacman --color=always -Ss "$@" | less -Er
+}
+
+
+e () {
+    if [[ $# -eq 0 ]]; then
+	emacsclient -a="" -nc &
+    else
+	emacsclient -a=" " -n "$@" &
+    fi
+}
+
+
 mkcd() { mkdir -p "$@" && cd "$_"; }
 
 man() {
@@ -76,7 +90,7 @@ ff()
     local p
     local a
     for p in "${@:2}"; do a+=( -iname "*$p*" ); done
-    find "$1" "${a[@]}" 
+    find "$1" "${a[@]}"
 }
 
 # http://phraktured.net/config/.bashrc
