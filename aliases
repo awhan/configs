@@ -1,8 +1,8 @@
 # -*- mode:Shell-script -*-
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 
-alias l='\ls --color=always | less -Er'
-alias la='\ls -A --color=always | less -Er'
+alias l='\ls --color=always'
+alias la='\ls -A --color=always'
 alias lrt='\ls --color=always -Ar1t'
 
 
@@ -31,11 +31,10 @@ alias cdd='cd "$(xsel)"'
 alias s='sudo pacman --color=always -S --needed'
 alias yu='sudo pacman --color=always -Syu --needed'
 alias yy='sudo pacman --color=always -Syy'
-alias  q='pacman --color=always -Q'
+#alias  q='pacman --color=always -Qs'
 alias qi='pacman --color=always -Qi'
 alias qo='pacman --color=always -Qo'
 alias qm='pacman --color=always -Qm'
-alias ql='pacman --color=always -Ql'
 alias qqet='pacman --color=always -Qqet' # uneeded + explicit
 alias qg='pacman --color=always -Qgq' # query group
 

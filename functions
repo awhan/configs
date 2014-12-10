@@ -4,6 +4,18 @@ ss () {
     pacman --color=always -Ss "$@" | less -Er
 }
 
+q () {
+    for e in "$@"; do
+	printf "$e\n"
+	pacman --color=always -Qs "$e"
+	printf '\n'
+    done
+}
+
+ql () {
+    pacman --color=always -Qlq "$@" | less -Er
+}
+
 
 e () {
     if [[ $# -eq 0 ]]; then
@@ -87,10 +99,12 @@ fix() {
 # find files
 ff()
 {
+    set -x
     local p
     local a
     for p in "${@:2}"; do a+=( -iname "*$p*" ); done
     find "$1" "${a[@]}"
+    set +x
 }
 
 # http://phraktured.net/config/.bashrc
@@ -118,8 +132,12 @@ backnew() {
 }
 
 ytdl () {
-    youtube-dl --title --no-mtime --no-overwrites \
-        --restrict-filenames --continue --format 18 "$1" ;
+    #set -x
+    local fmt
+    fmt=${2:-18}
+    youtube-dl -F --title --no-mtime --no-overwrites \
+        --restrict-filenames --continue --format $fmt "$1" ;
+    #set +x
 }
 
 
