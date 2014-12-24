@@ -47,7 +47,7 @@ shopt -s extglob
 shopt -s globstar
 shopt -s checkwinsize
 
-export EDITOR=~/bin/e
+#export EDITOR=~/bin/e
 
 PATH=$PATH:~/bin:/usr/local/MATLAB/R2011a/bin:~/.gem/ruby/2.0.0/bin
 
