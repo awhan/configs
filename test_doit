@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+_test_doit_source="~/_test_doit_source$RANDOM"
+_test_doit_target="~/_test_doit_target$RANDOM"
+
+[[ -f "$_test_doit_src" ]] && touch _test_doit_src
+
+[[ -f "$_test_doit_src" ]] && touch _test_doit_src

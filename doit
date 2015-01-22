@@ -4,6 +4,7 @@
 
 if [[ $# -ne 2 ]]; then
     echo "usage: $0 source target"
+    echo "soft link source to target"
     echo "$0 ../foo/bar ~/.baz"
     echo "$0 /home/m/configs/bashrc ~/.bashrc"
     echo "$0 \$(realpath bashrc) ~/.bashrc"

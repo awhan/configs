@@ -1,4 +1,7 @@
-all: bash
+all:
+
+emacs:
+	@./doit $(realpath emacs) ~/.emacs
 
 xresources:
 	@./doit $(realpath Xresources) ~/.Xresources

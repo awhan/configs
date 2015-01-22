@@ -1,5 +1,9 @@
 # -*- mode:Shell-script -*-
 
+sprunge () {
+    echo "$@" | curl -F 'sprunge=<-' http://sprunge.us
+}
+
 ss () {
     pacman --color=always -Ss "$@" | less -Er
 }
@@ -99,12 +103,12 @@ fix() {
 # find files
 ff()
 {
-    set -x
+    #set -x
     local p
     local a
     for p in "${@:2}"; do a+=( -iname "*$p*" ); done
     find "$1" "${a[@]}"
-    set +x
+    #set +x
 }
 
 # http://phraktured.net/config/.bashrc
@@ -133,10 +137,8 @@ backnew() {
 
 ytdl () {
     #set -x
-    local fmt
-    fmt=${2:-18}
-    youtube-dl -F --title --no-mtime --no-overwrites \
-        --restrict-filenames --continue --format $fmt "$1" ;
+    youtube-dl --title --no-mtime --no-overwrites \
+        --restrict-filenames --continue --format 18 "$@" ;
     #set +x
 }
 
