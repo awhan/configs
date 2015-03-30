@@ -1,5 +1,10 @@
 # -*- mode:Shell-script -*-
 
+# count number of files 
+nf () {
+    ls -1 "$@" | wc -l
+}
+
 sprunge () {
     echo "$@" | curl -F 'sprunge=<-' http://sprunge.us
 }
@@ -142,6 +147,13 @@ ytdl () {
     #set +x
 }
 
+ytdlbest () {
+    #set -x
+    youtube-dl --title --no-mtime --no-overwrites \
+        --restrict-filenames --continue --format 'best' "$@" ;
+    #set +x
+}
+
 
 findsort () {
     find . -iname "$1" -printf '%T@ \t %p\n'
@@ -150,3 +162,10 @@ findsort () {
 
 # thanks to prince_jammys on #bash
 show() { declare -p "${1^^}"; }
+
+
+hado () {
+    ssh-add ~/vzper-east.pem
+    ssh hduser@hadoop
+}
+
