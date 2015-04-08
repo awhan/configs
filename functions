@@ -1,6 +1,6 @@
 # -*- mode:Shell-script -*-
 
-# count number of files 
+# count number of files
 nf () {
     ls -1 "$@" | wc -l
 }
@@ -15,9 +15,9 @@ ss () {
 
 q () {
     for e in "$@"; do
-	printf "$e\n"
-	pacman --color=always -Qs "$e"
-	printf '\n'
+        printf "$e\n"
+        pacman --color=always -Qs "$e"
+        printf '\n'
     done
 }
 
@@ -28,9 +28,9 @@ ql () {
 
 e () {
     if [[ $# -eq 0 ]]; then
-	emacsclient -a="" -nc &
+        emacsclient -a="" -nc &
     else
-	emacsclient -a=" " -n "$@" &
+        emacsclient -a=" " -n "$@" &
     fi
 }
 
@@ -39,14 +39,14 @@ mkcd() { mkdir -p "$@" && cd "$_"; }
 
 man() {
     env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
 }
 
 
@@ -84,7 +84,7 @@ fix() {
     fix_ext="$(sanitize "$fix_ext")"
 
     # filename
-    local fix_fn="${1%.*}"                 
+    local fix_fn="${1%.*}"
     fix_fn="$(sanitize "$fix_fn")";
 
     if [[ $fix_fn == $fix_ext ]];
@@ -95,9 +95,9 @@ fix() {
         # has extension
         fix_newname="$fix_fn.$fix_ext"
     fi
-    
+
     echo "new :: $fix_newname"
-    
+
     read -p 'change name (y/n)? '
     if [[ $REPLY == y ]];
     then
@@ -165,7 +165,9 @@ show() { declare -p "${1^^}"; }
 
 
 hado () {
-    ssh-add ~/vzper-east.pem
-    ssh hduser@hadoop
+    ssh -i ~/vzper-east.pem hduser@hadoop
 }
 
+cube () {
+    ssh -i ~/vzper-east.pem ec2-user@cube
+}
