@@ -1,5 +1,12 @@
 # -*- mode:Shell-script -*-
 
+f () {
+shopt -s nocaseglob
+set -x
+\ls --color=always -d *$@*
+set +x
+}
+
 # count number of files
 nf () {
     ls -1 "$@" | wc -l
