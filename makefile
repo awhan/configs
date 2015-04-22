@@ -23,4 +23,8 @@ tmux:
 vimrc:
 	@./doit $(realpath vimrc) ~/.vimrc
 
-.PHONY: bashrc aliases functions
+vifmrc:
+	@./doit $(realpath dot-vifm/vifmrc) ~/.vifm/vifmrc
+
+
+.PHONY: bashrc aliases functions emacs vifmrc
