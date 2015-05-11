@@ -1,0 +1,4 @@
+
+rootdir=$(mktemp -d)
+
+=$(mktemp -p $rootdir)

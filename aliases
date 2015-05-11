@@ -1,4 +1,7 @@
 # -*- mode:Shell-script -*-
+
+alias r='rsync -avz --progress'
+
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 
 alias l='\ls --color=always'

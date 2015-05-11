@@ -11,10 +11,12 @@ set mark-symlinked-directories on
 
 "\M-m": vi-back-to-indent          # duplicate emacs style M-m
 
-# # Bind the up arrow to history search, instead of history step
+# Bind the up arrow to history search, instead of history step
 # "\e[A": history-search-backward
-# # And the reverse (down)
+"\C-p": history-search-backward
+# And the reverse (down)
 # "\e[B": history-search-forward
+"\C-n": history-search-forward
 
 # Emacs:
 # Local Variables:

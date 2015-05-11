@@ -1,3 +1,5 @@
+;; -*- mode:Emacs-Lisp -*-
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,3 +55,9 @@
 
 ;; http://www.emacswiki.org/emacs/BackspaceKey
 (global-set-key [(control h)] 'delete-backward-char)
+
+
+(add-to-list 'load-path
+             "~/.emacs.d/elpa/yasnippet-0.8.0")
+(require 'yasnippet)
+(yas-global-mode 1)

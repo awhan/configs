@@ -1,5 +1,17 @@
 # -*- mode:Shell-script -*-
 
+toff () {
+# touchpad off
+xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
+printf 'touchpad off\n'
+}
+
+ton () {
+# touchpad on
+xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 1
+printf 'touchpad on\n'
+}
+
 f () {
 shopt -s nocaseglob
 set -x
@@ -23,7 +35,8 @@ ss () {
 q () {
     for e in "$@"; do
         printf "$e\n"
-        pacman --color=always -Qs "$e"
+        #pacman --color=always -Qs "$e" # why 's' takes more time
+        pacman --color=always -Q "$e"
         printf '\n'
     done
 }
@@ -147,16 +160,18 @@ backnew() {
     fi
 }
 
-ytdl () {
+y () {
     #set -x
     youtube-dl --title --no-mtime --no-overwrites \
+	--write-sub --sub-lang 'en' \
         --restrict-filenames --continue --format 18 "$@" ;
     #set +x
 }
 
-ytdlbest () {
+yb () {
     #set -x
     youtube-dl --title --no-mtime --no-overwrites \
+	--write-sub --sub-lang 'en' \
         --restrict-filenames --continue --format 'best' "$@" ;
     #set +x
 }

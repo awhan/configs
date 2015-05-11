@@ -1,4 +1,5 @@
 # -*- mode:Shell-script -*-
+# ./doit source target
 # ./doit ../foo/bar ~/.baz
 #
 
@@ -15,20 +16,32 @@ fi
 source=$1
 target=$2
 
-echo "source $source"
-echo "target $target"
+printf "source: $source --> target: $target\n"
 
 if [[ ! -f "$source" ]]; then
-    echo "no $source present ..."
+    echo "no '$source' present ...exiting"
     exit 1
 fi
 
-if [[ -f "$target" ]]; then
-    echo "$target already present ..."
-    echo "making backups ..."
-    cp -aiv "$target" "$target".backup_$(date +%T_%F)
+# # backup target if present
+# if [[ -h "$target" ]]; then
+#     printf '%s is a symlink\n' "$target"
+#     ln --backup=numbered -sfv "$source" "$target"
+#     # backup links to previous target
+# elif [[ -f "$target" ]]; then
+#     #printf '%s is a regular file' "$target"
+#     cp -aiv "$target" "$target".backup_$(date +%T_%F)
+# else
+#     printf 'target site empty\n'
+# fi
+
+# ln -fsv "$(realpath $source)" "$target"
+
+if [[ -h $target ]]; then
+    ln -sv --backup=numbered $(realpath $source) $target
+elif [[ -f $target ]]; then
+    cp -afv --backup=numbered $target{,}
 fi
-
-ln -fsv "$(realpath $source)" "$target"
-
+    
+ln -sfv $(realpath $source) $target 
 # vim: set ft=sh syn=sh
