@@ -320,3 +320,6 @@ nmap <f8> :delete<cr>
 nmap ; :
 nmap q ZQ
 set number
+
+" sort so that directories are *not* grouped together
+nmap ,s :set sort=mtime,type<cr>

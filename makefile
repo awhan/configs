@@ -24,7 +24,7 @@ vimrc:
 	@./doit $(realpath vim/vimrc) ~/.vimrc
 
 vifmrc:
-	@./doit $(realpath dot-vifm/vifmrc) ~/.vifm/vifmrc
+	@./doit $(realpath vifm/vifmrc) ~/.vifm/vifmrc
 
 
 .PHONY: bashrc aliases functions emacs vifmrc

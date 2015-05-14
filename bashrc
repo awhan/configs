@@ -10,8 +10,8 @@ source ~/.functions
 
 source /usr/share/git/completion/git-prompt.sh
 #PS1="$\u@\h:\w$GREEN]]$NC\n\$"
-#PS1='[\u@\h \w$(__git_ps1 " (%s)")]\n\$ '
-PS1="[\u@\h \w$(__git_ps1 " (%s)")]$(tput sgr0)\n\$ "
+PS1='[\u@\h \w$(__git_ps1 " (%s)")]\n\$ '
+#PS1="[\u@\h \w$(__git_ps1 " (%s)")]$(tput sgr0)\n\$ "
 
 
 #http://stackoverflow.com/questions/103944/real-time-history-export-amongst-bash-terminal-windows
