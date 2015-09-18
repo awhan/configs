@@ -24,6 +24,7 @@ XTerm*cursorBlink: false
 XTerm*cursorColor: Red
 
 XTerm*titeInhibit: true
+XTerm*utf8: 1
 
 !#include ".colors/xterm_zenburn"
 

@@ -1,5 +1,14 @@
 # -*- mode:Shell-script -*-
 
+alias hm='ssh -i ~/dev_rsa hadoopuser@hm'
+#alias hs1='ssh -i ~/.ssh/id_rsa_new ubuntu@hs1'
+#alias hs2='ssh -i ~/.ssh/id_rsa_new ubuntu@hs2'
+alias hs1='ssh -i ~/dev_rsa ubuntu@hs1'
+alias hs2='ssh -i ~/dev_rsa ubuntu@hs2'
+alias classifier='ssh -i ~/dev_rsa dev@classifier'
+alias rptmaster='ssh -i ~/dev_rsa dev@rptmaster'
+alias rptslave='ssh -i ~/dev_rsa dev@rptslave'
+
 alias r='rsync -avz --progress'
 
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
@@ -7,6 +16,7 @@ alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 alias l='\ls --color=always'
 alias la='\ls -A --color=always'
 alias lrt='\ls --color=always -Ar1t'
+alias l1='\ls --color=always -A1'
 
 
 # safety features
@@ -32,7 +42,7 @@ alias cdd='cd "$(xsel)"'
 
 
 alias s='sudo pacman --color=always -S --needed'
-alias yu='sudo pacman --color=always -Syu --needed'
+alias yu='sudo pacman --color=always -Syyu --needed'
 alias yy='sudo pacman --color=always -Syy'
 #alias  q='pacman --color=always -Qs'
 alias qi='pacman --color=always -Qi'

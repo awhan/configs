@@ -1,63 +1,57 @@
-;; -*- mode:Emacs-Lisp -*-
+;; -*- mode: Emacs-lisp -*-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
- '(global-hl-line-mode t)
- '(indent-tabs-mode nil)
- '(inhibit-startup-screen t)
- '(initial-scratch-message nil)
- '(menu-bar-mode nil)
- '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "http://melpa.org/packages/"))))
- '(scroll-bar-mode nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(inhibit-startup-screen t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
+ )
 
 
-(require 'evil)
-;; (evil-mode 1)
-(put 'narrow-to-region 'disabled nil)
+;; M-x blink-cursor-mode
+(blink-cursor-mode -1)
 
-(defvar rst-pdf-program "evince"
-  "program to preview pdf files")
-(put 'set-goal-column 'disabled nil)
+;; cursor stretches to cover whole glyph
+(setq x-stretch-cursor t)
+
+;; http://melpa.org/#/getting-started
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/") t)
+;; initialize installed packages
+(package-initialize)
+
+;; http://auto-complete.org/
+;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20150408.1132")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20150408.1132/dict")
+;;(add-to-list 'load-path "~/.emacs.d/elpa/popup-20150315.612")
+(require 'auto-complete-config)
+(ac-config-default)
+
+(require 'ido)
+(ido-mode t)
 
 
-(fset 'rel
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("\223[0-9][0-9]-[0-9][0-9]\336zzzzzzzzz" 0 "%d")) arg)))
-
-
-;; (require 'server)
-;; (unless (server-running-p)
-;;   (server-start))
-
-
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+(show-paren-mode)
 
 
 ;; http://www.emacswiki.org/emacs/BackspaceKey
 (global-set-key [(control h)] 'delete-backward-char)
+(put 'narrow-to-region 'disabled nil)
+
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
 
 
-(add-to-list 'load-path
-             "~/.emacs.d/elpa/yasnippet-0.8.0")
-(require 'yasnippet)
-(yas-global-mode 1)
+(tool-bar-mode -1)
+;;https://www.gnu.org/software/emacs/manual/html_node/emacs/Display-Custom.html#Display-Custom 
+(setq echo-keystrokes 0.1)

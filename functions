@@ -1,5 +1,10 @@
 # -*- mode:Shell-script -*-
 
+lrtd () {
+    # list only directories in reverse sorted time order
+    \ls --color=always -1Adrt "$@"/*
+}
+
 toff () {
 # touchpad off
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
@@ -178,7 +183,13 @@ yb () {
 
 
 findsort () {
-    find . -iname "$1" -printf '%T@ \t %p\n'
+    #set -x
+    # %Tk File's last modification time in the format specified by k, which is the same as for %A
+    # k == @
+    # %p file's name
+    #find . -iname "$1" -printf '%T@ \t %p\n'
+    find -type f -name $1 -printf '%T@\t%t\t%p\n' | sort -n | awk -F'\t' '{print $2, $3}'
+    #set +x
 }
 
 

@@ -9,8 +9,8 @@ source ~/.aliases
 source ~/.functions
 
 source /usr/share/git/completion/git-prompt.sh
-#PS1="$\u@\h:\w$GREEN]]$NC\n\$"
-PS1='[\u@\h \w$(__git_ps1 " (%s)")]\n\$ '
+TITLEBAR="\e]2\u@\h:\w\a"
+PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s)")\n\$ '
 #PS1="[\u@\h \w$(__git_ps1 " (%s)")]$(tput sgr0)\n\$ "
 
 
