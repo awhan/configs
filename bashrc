@@ -32,6 +32,9 @@ shopt -s checkwinsize
 
 PATH=$PATH:~/bin:/usr/local/MATLAB/R2011a/bin:~/.gem/ruby/2.0.0/bin
 
+export LESSOPE='| src-hilite-lesspipe.sh %s'
+export LESS=' -R'
+
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
 
 # vim: ft=sh syn=sh

@@ -5,3 +5,9 @@ syntax on
 
 set encoding=utf-8
 set ignorecase
+
+" show line numbers
+set number 
+
+" show command in bottom bar
+set showcmd

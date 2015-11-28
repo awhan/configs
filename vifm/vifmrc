@@ -195,7 +195,7 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ sxiv,
         \ {View in gpicview}
         \ gpicview %c,
-	\ feh,
+	\ feh -FZ,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm convert -identify %f -verbose /dev/null
 
 " MD5
@@ -323,7 +323,8 @@ nmap q ZQ
 set number
 
 " sort so that directories are *not* grouped together
-nmap ,s :set sort=mtime,type<cr>
+" nmap ,s :set sort=mtime,type<cr>
+nmap ,s :set sort=mtime,dir<cr>
 
 command pdf :filter! /\.pdf$/
 " command mp4 :filter! /\.mp4$/

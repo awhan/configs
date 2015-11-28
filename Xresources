@@ -25,6 +25,7 @@ XTerm*cursorColor: Red
 
 XTerm*titeInhibit: true
 XTerm*utf8: 1
+XTerm*termName: xterm-256color
 
 !#include ".colors/xterm_zenburn"
 

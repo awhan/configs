@@ -55,3 +55,5 @@
 (tool-bar-mode -1)
 ;;https://www.gnu.org/software/emacs/manual/html_node/emacs/Display-Custom.html#Display-Custom 
 (setq echo-keystrokes 0.1)
+
+(global-hl-line-mode 1)
