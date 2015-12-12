@@ -205,11 +205,11 @@ cube () {
     ssh -i ~/vzper-east.pem ec2-user@cube
 }
 
-starthadoop() {
+starthadoopcluster() {
     ~/.local/bin/aws ec2 start-instances --instance-ids i-12406abb i-a4557f0d i-93547e3a
 }
 
-stophadoop() {
+stophadoopcluster() {
     ~/.local/bin/aws ec2 stop-instances --instance-ids i-12406abb i-a4557f0d i-93547e3a
 }
 
@@ -218,6 +218,6 @@ dihadoop() {
     ~/.local/bin/aws ec2 describe-instances --instance-ids i-12406abb i-a4557f0d i-93547e3a
 }
 
-statushadoop() {
+statushadoopcluster() {
     ~/.local/bin/aws ec2 describe-instances --instance-ids i-12406abb i-a4557f0d i-93547e3a | jq .Reservations[].Instances[].State.Name
 }

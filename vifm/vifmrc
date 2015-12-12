@@ -190,13 +190,13 @@ filetype *.html,*.htm links,mozilla,uzbl-browser %f %i &
 filetype *.o nm %f | less
 
 " Image
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.jpe
         \ {View in sxiv}
         \ sxiv,
         \ {View in gpicview}
         \ gpicview %c,
-	\ feh -FZ,
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm convert -identify %f -verbose /dev/null
+	\ feh -FZ %d --start-at %d/%c,
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.jpe convert -identify %f -verbose /dev/null
 
 " MD5
 filetype *.md5

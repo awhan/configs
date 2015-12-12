@@ -1,0 +1,2 @@
+highlight Win cterm=none ctermfg=none ctermbg=none
+highlight CurrLine cterm=standout ctermfg=none ctermbg=none
