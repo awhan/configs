@@ -57,3 +57,6 @@
 (setq echo-keystrokes 0.1)
 
 (global-hl-line-mode 1)
+
+
+(setq x-select-enable-clipboard t)

@@ -221,3 +221,8 @@ dihadoop() {
 statushadoopcluster() {
     ~/.local/bin/aws ec2 describe-instances --instance-ids i-12406abb i-a4557f0d i-93547e3a | jq .Reservations[].Instances[].State.Name
 }
+
+
+update_mirrors() {
+    time reflector --verbose -l 5 -p http --sort rate --threads 3 --save /etc/pacman.d/mirrorlist
+}

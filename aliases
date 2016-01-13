@@ -1,5 +1,5 @@
 # -*- mode:Shell-script -*-
-
+alias hdn01='ssh spotzot@hdn01.plumlabs.us'
 alias hm='ssh -i ~/dev_rsa hadoopuser@hm'
 #alias hs1='ssh -i ~/.ssh/id_rsa_new ubuntu@hs1'
 #alias hs2='ssh -i ~/.ssh/id_rsa_new ubuntu@hs2'
