@@ -65,4 +65,6 @@ alias val='valgrind -v --leak-check=full \
 
 #alias e='emacsclient -a="" -n -c'
 
+# make capslock key an additional control
+alias caps2control='setxbmap -option ctrl:nocaps'
 # vim: ft=sh

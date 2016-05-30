@@ -6,7 +6,7 @@ Xft.lcdfilter: lcddefault
 XTerm*charClass: 33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
 
 XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 10
+XTerm*faceSize: 12 
 !XTerm*faceSize: 12
 
 
@@ -26,6 +26,7 @@ XTerm*cursorColor: Red
 XTerm*titeInhibit: true
 XTerm*utf8: 1
 XTerm*termName: xterm-256color
+XTerm*locale: true
 
 !#include ".colors/xterm_zenburn"
 

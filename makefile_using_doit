@@ -4,7 +4,7 @@ emacs:
 	@./doit $(realpath emacs) ~/.emacs
 
 xresources:
-	@./doit $(realpath Xresources) ~/.Xresources
+	@./doit $(realpath xresources) ~/.Xresources
 
 bash: bashrc aliases functions
 
@@ -21,10 +21,10 @@ tmux:
 	@./doit $(realpath tmux.conf) ~/.tmux.conf
 
 vimrc:
-	@install -m 0600 --suffix="_backup_$(date +%F_%T)" -v -- vim/vimrc ~/.vimrc
+	@./doit $(realpath vim/vimrc) ~/.vimrc
 
 vifmrc:
-	@./doit $(realpath dot-vifm/vifmrc) ~/.vifm/vifmrc
+	@./doit $(realpath vifm/vifmrc) ~/.vifm/vifmrc
 
 
 .PHONY: bashrc aliases functions emacs vifmrc

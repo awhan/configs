@@ -1,30 +1,46 @@
 all:
 
 emacs:
-	@./doit $(realpath emacs) ~/.emacs
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- emacs ~/.emacs
+
 
 xresources:
-	@./doit $(realpath Xresources) ~/.Xresources
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- xresources ~/.Xresources
+
 
 bash: bashrc aliases functions
 
+
 bashrc:
-	@./doit $(realpath bashrc) ~/.bashrc
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- bashrc ~/.bashrc
+
 
 aliases:
-	@./doit $(realpath aliases) ~/.aliases
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- aliases ~/.aliases
+
 
 functions:
-	@./doit $(realpath functions) ~/.functions
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- functions ~/.functions
+
 
 tmux:
-	@./doit $(realpath tmux.conf) ~/.tmux.conf
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- tmux.conf ~/.tmux.conf
+
 
 vimrc:
-	@./doit $(realpath vim/vimrc) ~/.vimrc
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- vim/vimrc ~/.vimrc
+
 
 vifmrc:
-	@./doit $(realpath vifm/vifmrc) ~/.vifm/vifmrc
+	@install -D -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- vifm/vifmrc ~/.vifm/vifmrc
 
 
-.PHONY: bashrc aliases functions emacs vifmrc
+inputrc:
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- inputrc ~/.inputrc
+
+
+xkbmap:
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- Xkbmap ~/.Xkbmap
+
+
+.PHONY: bashrc aliases functions emacs vifmrc inputrc xresources

@@ -1,5 +1,12 @@
 # -*- mode:Shell-script -*-
 
+conv () {
+    set -x
+    TZ=\"$3\" date -d "TZ=\"$2\" $1"
+    set +x
+}
+
+
 lrtd () {
     # list only directories in reverse sorted time order
     \ls --color=always -1Adrt "$@"/*
@@ -30,19 +37,19 @@ nf () {
 }
 
 sprunge () {
-    echo "$@" | curl -F 'sprunge=<-' http://sprunge.us
+    echo "$@" |& curl -F 'sprunge=<-' http://sprunge.us
 }
 
-ss () {
-    pacman --color=always -Ss "$@" | less -Er
+pacss () {
+    pacman --color=always -Ss "$@" | less -ErX
 }
 
 q () {
     for e in "$@"; do
-        printf "$e\n"
-        #pacman --color=always -Qs "$e" # why 's' takes more time
-        pacman --color=always -Q "$e"
-        printf '\n'
+	printf "$e\n"
+	#pacman --color=always -Qs "$e" # why 's' takes more time
+	pacman --color=always -Q "$e"
+	printf '\n'
     done
 }
 
@@ -53,9 +60,9 @@ ql () {
 
 e () {
     if [[ $# -eq 0 ]]; then
-        emacsclient -a="" -nc &
+	emacsclient -a="" -nc &
     else
-        emacsclient -a=" " -n "$@" &
+	emacsclient -a=" " -n "$@" &
     fi
 }
 
@@ -64,14 +71,14 @@ mkcd() { mkdir -p "$@" && cd "$_"; }
 
 man() {
     env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
-        man "$@"
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "$@"
 }
 
 
@@ -114,11 +121,11 @@ fix() {
 
     if [[ $fix_fn == $fix_ext ]];
     then
-        # no extension
-        local fix_newname="$fix_fn"
+	# no extension
+	local fix_newname="$fix_fn"
     else
-        # has extension
-        fix_newname="$fix_fn.$fix_ext"
+	# has extension
+	fix_newname="$fix_fn.$fix_ext"
     fi
 
     echo "new :: $fix_newname"
@@ -126,7 +133,7 @@ fix() {
     read -p 'change name (y/n)? '
     if [[ $REPLY == y ]];
     then
-        mv -iv "$1" "$fix_newname"
+	mv -iv "$1" "$fix_newname"
     fi
 }
 
@@ -153,15 +160,15 @@ backnew() {
     backnew_filename=$(basename $@)
     #echo $backnew_filename_$(today)
     if [[ -f $@ ]]; then
-        cp -piv $@ /home/m/pacnew/"$backnew_filename"_$(today)
+	cp -piv $@ /home/m/pacnew/"$backnew_filename"_$(today)
     else
-        echo "not found"
+	echo "not found"
     fi
 
     if [[ -f $@.pacnew ]]; then
-        cp -piv $@.pacnew /home/m/pacnew/"$backnew_filename".pacnew_$(today)
+	cp -piv $@.pacnew /home/m/pacnew/"$backnew_filename".pacnew_$(today)
     else
-        echo ".pacnew not found"
+	echo ".pacnew not found"
     fi
 }
 
@@ -169,7 +176,7 @@ y () {
     #set -x
     youtube-dl --title --no-mtime --no-overwrites \
 	--write-sub --sub-lang 'en' \
-        --restrict-filenames --continue --format 18 "$@" ;
+	--restrict-filenames --continue --format 18 "$@" ;
     #set +x
 }
 
@@ -177,7 +184,7 @@ yb () {
     #set -x
     youtube-dl --title --no-mtime --no-overwrites \
 	--write-sub --sub-lang 'en' \
-        --restrict-filenames --continue --format 'best' "$@" ;
+	--restrict-filenames --continue --format 'best' "$@" ;
     #set +x
 }
 
@@ -225,4 +232,12 @@ statushadoopcluster() {
 
 update_mirrors() {
     time reflector --verbose -l 5 -p http --sort rate --threads 3 --save /etc/pacman.d/mirrorlist
+}
+
+
+lo () {
+    local lo_a=''
+    local lo_p=''
+    for lo_p in "${@:1}"; do lo_a+=( "*$lo_p*" ); done
+    echo "${lo_a[@]}"
 }
