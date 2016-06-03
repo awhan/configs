@@ -1,7 +1,7 @@
 all:
 
 emacs:
-	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- emacs ~/.emacs
+	@install -m 0600 --suffix="_backup_$$(date +%F_%T)" -v -- dot_emacs ~/.emacs
 
 
 xresources:

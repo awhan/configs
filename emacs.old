@@ -1,4 +1,4 @@
-; -*- mode:emacs-lisp -*-
+;; -*- mode:emacs-lisp -*-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -89,10 +89,10 @@
 ;; try-complete-lisp-symbol)
 
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
- try-expand-dabbrev-all-buffers try-expand-list try-expand-line
- try-expand-dabbrev-from-kill try-complete-file-name-partially
- try-complete-file-name try-expand-all-abbrevs
- try-complete-lisp-symbol-partially try-complete-lisp-symbol))
+                                         try-expand-dabbrev-all-buffers try-expand-list try-expand-line
+                                         try-expand-dabbrev-from-kill try-complete-file-name-partially
+                                         try-complete-file-name try-expand-all-abbrevs
+                                         try-complete-lisp-symbol-partially try-complete-lisp-symbol))
 
 
 ;;
@@ -124,14 +124,14 @@
 
 (setq compilation-finish-function
       (lambda (buf str)
-	(if (string-match "exited abnormally" str)
+        (if (string-match "exited abnormally" str)
 
-	    ;; there were errors
-	    (message "compilation errors")
+            ;; there were errors
+            (message "compilation errors")
 
-	  ;; no errors, make the compilation window go away in 1.0 seconds
-	  (run-at-time 1.0 nil 'delete-windows-on buf)
-	  (message "no compilation errors"))))
+          ;; no errors, make the compilation window go away in 1.0 seconds
+          (run-at-time 1.0 nil 'delete-windows-on buf)
+          (message "no compilation errors"))))
 
 
 
@@ -144,8 +144,8 @@
 (setq-default
  frame-title-format
  (list '((buffer-file-name " %f" (dired-directory
-	 			  dired-directory
-				  (revert-buffer-function " %b"
+                                  dired-directory
+                                  (revert-buffer-function " %b"
                                                           ("%b - Dir:  " default-directory)))))))
 
 
@@ -472,6 +472,6 @@
 
 
 (fset 'ap-table
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([5 32 92 92 return 92 104 108 105 110 101 14] 0 "%d")) arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([5 32 92 92 return 92 104 108 105 110 101 14] 0 "%d")) arg)))
 
 (setq initial-scratch-message "")
