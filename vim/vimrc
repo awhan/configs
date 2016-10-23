@@ -11,3 +11,6 @@ set number
 
 " show command in bottom bar
 set showcmd
+
+" :help laststatus
+set laststatus=2
