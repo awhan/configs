@@ -1,6 +1,0 @@
-rm -f ~/.vimrc*;
-./doit vim/vimrc ~/.vimrc;
-ls -alh ~/.vimrc*;
-./doit vim/vimrc ~/.vimrc;
-./doit vim/vimrc ~/.vimrc;
-ls -alh ~/.vimrc*

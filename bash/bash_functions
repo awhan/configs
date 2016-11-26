@@ -241,3 +241,8 @@ lo () {
     for lo_p in "${@:1}"; do lo_a+=( "*$lo_p*" ); done
     echo "${lo_a[@]}"
 }
+
+
+gitroot () {
+    cd $(git rev-parse --show-toplevel)
+    }

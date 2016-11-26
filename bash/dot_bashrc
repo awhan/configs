@@ -5,10 +5,11 @@
 
 #source /usr/etc/profile.d/autojump.bash
 
-source ~/.aliases
-source ~/.functions
+source ~/.bash_aliases
+source ~/.bash_functions
 
 source /usr/share/git/completion/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
 TITLEBAR="\e]2\u@\h:\w\a"
 PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s)")\n\$ '
 #PS1="[\u@\h \w$(__git_ps1 " (%s)")]$(tput sgr0)\n\$ "
@@ -18,7 +19,7 @@ PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s)")\n\$ '
 #export PROMPT_COMMAND='history -a; history -n; history -w'
 #export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -n; history -w"
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="pwd:ls:cd:l:e:yy:yu"
+export HISTIGNORE="pwd:ls:cd:l:e:yy:yu:history:tmux:lrt:y*:cls"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 HISTTIMEFORMAT='%F %T  '
@@ -30,7 +31,7 @@ shopt -s checkwinsize
 
 #export EDITOR=~/bin/e
 
-PATH=$PATH:~/bin:/usr/local/MATLAB/R2011a/bin:~/.gem/ruby/2.0.0/bin
+PATH=$PATH:~/.local/bin:~/anaconda3/bin
 
 export LESSOPEN='|src-hilite-lesspipe.sh %s'
 export LESS='-R'
