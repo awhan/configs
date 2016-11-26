@@ -235,14 +235,18 @@ update_mirrors() {
 }
 
 
-lo () {
-    local lo_a=''
-    local lo_p=''
-    for lo_p in "${@:1}"; do lo_a+=( "*$lo_p*" ); done
-    echo "${lo_a[@]}"
-}
+# lo () {
+#     local a
+#     local p
+#     for p in "${@:1}"; do a+=( -r "$p" ); done
+#     echo "${a[@]}"
+#     locate -Ai "${a[@]}"
+# }
 
+lo () {
+    locate -Ai --regex "$@"
+}
 
 gitroot () {
     cd $(git rev-parse --show-toplevel)
-    }
+}
