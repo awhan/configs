@@ -54,17 +54,17 @@ q () {
 }
 
 ql () {
-    pacman --color=always -Qlq "$@" | less -Er
+    pacman --color=always -Qlq "$@" | less -ErX
 }
 
 
-e () {
-    if [[ $# -eq 0 ]]; then
-	emacsclient -a="" -nc &
-    else
-	emacsclient -a=" " -n "$@" &
-    fi
-}
+# e () {
+#     if [[ $# -eq 0 ]]; then
+# 	emacsclient -a="" -nc &
+#     else
+# 	emacsclient -a=" " -n "$@" &
+#     fi
+# }
 
 
 mkcd() { mkdir -p "$@" && cd "$_"; }
