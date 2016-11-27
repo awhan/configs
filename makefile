@@ -3,6 +3,10 @@
 # symlink then create a backup symlink that points to the old file but
 # the name is a last name + new suffix
 
+define myinstall
+	ln -fsv --suffix=__$$(date +%F_%T) $(1) $(2)
+endef
+
 # doit=ln -fsv --suffix=__$$(date +%F_%T) $(realpath $^) $@
 
 doit=ln -fsv --suffix=__$$(date +%F_%T) $(SRC) $(DEST)
@@ -39,5 +43,9 @@ bash_aliases:  DEST = ~/.bash_aliases
 bash_aliases:
 	$(doit)
 
+h: bash/h.sh
+	$(call myinstall, $(realpath $<), ~/.h.sh)
 
-bash: bashrc bash_functions bash_aliases
+bash: bashrc bash_functions bash_aliases h
+
+
