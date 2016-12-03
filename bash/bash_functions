@@ -66,6 +66,14 @@ ql () {
 #     fi
 # }
 
+e () {
+    emacsclient -n "$@"
+}
+
+ec () {
+    emacsclient -nc "$@"
+}
+
 
 mkcd() { mkdir -p "$@" && cd "$_"; }
 
@@ -244,7 +252,7 @@ update_mirrors() {
 # }
 
 lo () {
-    locate -Ai --regex "$@"
+    locate -Ai --regex "$@" | nl | h -i "$@"
 }
 
 gitroot () {

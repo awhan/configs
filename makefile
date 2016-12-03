@@ -3,43 +3,28 @@
 # symlink then create a backup symlink that points to the old file but
 # the name is a last name + new suffix
 
-define myinstall
-	ln -fsv --suffix=__$$(date +%F_%T) $(1) $(2)
-endef
+doit = ln -fsv --suffix=__$$(date +%F_%T) $(src) $(dst)
 
-# doit=ln -fsv --suffix=__$$(date +%F_%T) $(realpath $^) $@
-
-doit=ln -fsv --suffix=__$$(date +%F_%T) $(SRC) $(DEST)
-
-# vimperatorrc: ~/.vimperatorrc
-# ~/.vimperatorrc: vimperator/dot_vimperatorrc
-# 	$(doit)
-
-# vimrc: ~/.vimrc
-# ~/.vimrc: vim/vimrc
-# 	$(doit)
-
-
-vimrc: SRC = $(realpath vim/vimrc)
-vimrc: DST = ~/.vimrc
+vimrc: src = $(realpath vim/vimrc)
+vimrc: dst = ~/.vimrc
 vimrc:
 	$(doit)
 
 
-bash_functions: SRC = $(realpath bash/bash_functions)
-bash_functions:  DEST = ~/.bash_functions
+bash_functions: src = $(realpath bash/bash_functions)
+bash_functions: dst = ~/.bash_functions
 bash_functions:
 	$(doit)
 
 
-bashrc: SRC = $(realpath bash/dot_bashrc)
-bashrc:  DEST = ~/.bashrc
+bashrc: src = $(realpath bash/dot_bashrc)
+bashrc:  dst = ~/.bashrc
 bashrc:
 	$(doit)
 
 
-bash_aliases: SRC = $(realpath bash/bash_aliases)
-bash_aliases:  DEST = ~/.bash_aliases
+bash_aliases: src = $(realpath bash/bash_aliases)
+bash_aliases: dst = ~/.bash_aliases
 bash_aliases:
 	$(doit)
 
@@ -49,3 +34,16 @@ h: bash/h.sh
 bash: bashrc bash_functions bash_aliases h
 
 
+dotemacs: src := $(realpath emacs/dot_emacs)
+dotemacs: dst := ~/.emacs
+dotemacs:
+	$(doit)
+
+
+tmux: src := $(realpath tmux.conf)
+tmux: dst := ~/.tmux.conf
+tmux:
+	$(doit)
+
+print-%:
+	echo $* = $($*)

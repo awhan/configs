@@ -1,5 +1,8 @@
 "3.14.0 (created: 2016/06/07 23:58:16)
 
+" keeps you in normal mode and not put you in insert mode on finding textboxes
+set focuscontent
+
 style -name x chrome://*  #ab_button { color: red; !important; }
 
 source! /home/m/.vimperatorrc.local
