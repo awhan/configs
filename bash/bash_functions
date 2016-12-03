@@ -258,3 +258,11 @@ lo () {
 gitroot () {
     cd $(git rev-parse --show-toplevel)
 }
+
+
+sl () {
+    # just like 'ql' list files of package that is not installed yet
+    local url
+    printf -v url 'https://www.archlinux.org/packages/community/x86_64/%s/files/' "$1"
+    curl -s ${url} | grep -F 'li class' | w3m -dump -T 'text/html'
+}
