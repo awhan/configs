@@ -44,3 +44,6 @@ Fig.startfontsize: 10
 Fig.startgridmode: 1
 !Fig.zoom: 2.0
 Fig.splash: false
+
+!URxvt.font: 9x15bold
+URxvt.font: xft:DejaVu Sans Mono

@@ -80,8 +80,9 @@ vifmrc: ~/.vifm/vifmrc.ts
 
 # general recipe for all targets
 %.ts:
-	ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
-	touch $@
+	-diff $(realpath $<) $*
+	# ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
+	# touch $@
 
 
 print-%:; echo $* = $($*)
