@@ -50,9 +50,9 @@ dot.emacs: ~/.emacs.ts
 ~/.emacs.ts: emacs/dot.emacs
 
 
-# general recipe
+# general recipe for all targets
 %.ts:
-	ln -fsv --suffix=__$$(date +%F_%T) $(realpath $<) $*
+	ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
 	touch $@
 
 

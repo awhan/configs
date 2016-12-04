@@ -9,3 +9,4 @@
    where i first saw it.
 
 ** want to name the rules with simple names therefore a target of 'vimrc' is more preferable than '~/.vimrc'
+** individual groups e.g. bash, vim etc and individual targets e.g. vimrc, bashrc for fine grained control
