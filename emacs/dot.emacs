@@ -137,3 +137,11 @@
 
 
 (projectile-global-mode)
+
+
+;; ENSURE ROOT also has this config. It caused me lots of worries when
+;; editing config files for nginx. The backup mechnism left a
+;; pbot_nginx.conf~ in the directory /etc/nginx/sites-enabled and even
+;; when I modified nginx.conf the old settings were being read because
+;; of a 'include /etc/sites-enabled/*' in /etc/nginx/nginx.conf file
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))

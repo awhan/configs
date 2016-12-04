@@ -1,49 +1,60 @@
-# if no target then create a regular symlink if target is a normal
-# file. mv that file with same name + new suffix if target is a
-# symlink then create a backup symlink that points to the old file but
-# the name is a last name + new suffix
+# specs
 
-doit = ln -fsv --suffix=__$$(date +%F_%T) $(src) $(dst)
+# no output target is to be produced just linked with the source, we
+# will take care of timestamps using the .ts hack
 
-vimrc: src = $(realpath vim/vimrc)
-vimrc: dst = ~/.vimrc
-vimrc:
-	$(doit)
+# want to name all the rules - i don't want to say "make ~/.vimrc", i
+# would much prefer an easier name like "make vimrc"
 
+# i don't want to type too much or repeat target and prereqs names all
+# over the makefile, i want make to do a lot of things for me.
 
-bash_functions: src = $(realpath bash/bash_functions)
-bash_functions: dst = ~/.bash_functions
-bash_functions:
-	$(doit)
+# basic idea is this: take a rule such as follows:
+# <target>: <source>
+# which is basically a map from source to targets and then come up with a new rule
+# name: <target>.ts
+# <target>.ts: <source>
 
+# I am not there yet but this will have to do for now
 
-bashrc: src = $(realpath bash/dot_bashrc)
-bashrc:  dst = ~/.bashrc
-bashrc:
-	$(doit)
+all: vim bash tmux emacs
 
+# vim
+vim: vimrc
 
-bash_aliases: src = $(realpath bash/bash_aliases)
-bash_aliases: dst = ~/.bash_aliases
-bash_aliases:
-	$(doit)
-
-h: bash/h.sh
-	$(call myinstall, $(realpath $<), ~/.h.sh)
-
-bash: bashrc bash_functions bash_aliases h
+vimrc: ~/.vimrc.ts
+~/.vimrc.ts: vim/vimrc
 
 
-dotemacs: src := $(realpath emacs/dot_emacs)
-dotemacs: dst := ~/.emacs
-dotemacs:
-	$(doit)
+# bash
+bash: bashrc bash.functions bash.aliases
+
+bashrc: ~/.bashrc.ts
+~/.bashrc.ts: bash/bashrc
+
+bash.functions: ~/.bash.functions.ts
+~/.bash.functions.ts: bash/bash.functions
+
+bash.aliases: ~/.bash.aliases.ts
+~/.bash.aliases.ts: bash/bash.aliases
+
+# tmux
+tmux: ~/.tmux.conf.ts
+~/.tmux.conf.ts: tmux.conf
 
 
-tmux: src := $(realpath tmux.conf)
-tmux: dst := ~/.tmux.conf
-tmux:
-	$(doit)
+# emacs
+emacs: dot.emacs
 
-print-%:
-	echo $* = $($*)
+dot.emacs: ~/.emacs.ts
+~/.emacs.ts: emacs/dot.emacs
+
+
+# general recipe
+%.ts:
+	ln -fsv --suffix=__$$(date +%F_%T) $(realpath $<) $*
+	touch $@
+
+
+print-%:; echo $* = $($*)
+
