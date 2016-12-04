@@ -239,7 +239,7 @@ statushadoopcluster() {
 
 
 update_mirrors() {
-    time reflector --verbose -l 5 -p http --sort rate --threads 3 --save /etc/pacman.d/mirrorlist
+    time sudo reflector --verbose -l 5 -p http --sort rate --threads 3 --save /etc/pacman.d/mirrorlist
 }
 
 
