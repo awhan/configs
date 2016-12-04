@@ -27,7 +27,7 @@ vimrc: ~/.vimrc.ts
 
 
 # bash
-bash: bashrc bash.functions bash.aliases inputrc
+bash: bashrc bash.functions bash.aliases inputrc h.sh
 
 bashrc: ~/.bashrc.ts
 ~/.bashrc.ts: bash/bashrc
@@ -40,6 +40,9 @@ bash.aliases: ~/.bash.aliases.ts
 
 inputrc: ~/.inputrc.ts
 ~/.inputrc.ts: bash/inputrc
+
+h.sh: ~/.h.sh.ts
+~/.h.sh.ts: bash/h.sh
 
 
 # tmux
