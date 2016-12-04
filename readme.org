@@ -1,0 +1,11 @@
+* specs
+
+** always back up target before linking it to new source
+
+** since i m linking targets rather than creating them make will not be able to know the timestamps
+
+   the hack of .ts files is stolen from
+   https://www.safaribooksonline.com/library/view/linux-server-hacks/0596004613/ch01s14.html
+   where i first saw it.
+
+** want to name the rules with simple names therefore a target of 'vimrc' is more preferable than '~/.vimrc'
