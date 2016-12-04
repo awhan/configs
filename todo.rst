@@ -1,1 +1,0 @@
-#. deployment using gnu autotools
