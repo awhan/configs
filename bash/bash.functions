@@ -263,3 +263,9 @@ sl () {
     printf -v url 'https://www.archlinux.org/packages/community/x86_64/%s/files/' "$1"
     curl -s ${url} | grep -F 'li class' | w3m -dump -T 'text/html'
 }
+
+
+create_git_repo () {
+    # https://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-opening-br
+    curl -u 'awhan' https://api.github.com/user/repos -d '{"name":"'$@'"}'
+}
