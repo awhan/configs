@@ -180,20 +180,17 @@ backnew() {
     fi
 }
 
-y () {
+yb () {
     #set -x
-    youtube-dl --title --no-mtime --no-overwrites \
+    # without any 'format' argument it downloads the best version
+    youtube-dl -o '%(title)s-%(id)s-[%(uploader)s].%(ext)s' --no-mtime --no-overwrites \
 	--write-sub --sub-lang 'en' \
-	--restrict-filenames --continue --format 18 "$@" ;
+	--restrict-filenames --continue "$@" ;
     #set +x
 }
 
-yb () {
-    #set -x
-    youtube-dl --title --no-mtime --no-overwrites \
-	--write-sub --sub-lang 'en' \
-	--restrict-filenames --continue --format 'best' "$@" ;
-    #set +x
+y () {
+       yb --format 18 "$@" ;
 }
 
 
