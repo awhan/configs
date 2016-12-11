@@ -271,5 +271,9 @@ create_github_repo () {
 }
 
 create_bitbucket_repo () {
+    if [[ $# -ne 1 ]]; then
+        printf 'ERROR: i take only one argument\n'
+        return 1
+    fi
     curl --user awimagic https://api.bitbucket.org/1.0/repositories/ --data name=$@
 }
