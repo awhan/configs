@@ -271,5 +271,5 @@ create_github_repo () {
 }
 
 create_bitbucket_repo () {
-    curl -user awimagic https://api.bitbucket.org/1.0/repositories/ --data name=$@
+    curl --user awimagic https://api.bitbucket.org/1.0/repositories/ --data name=$@
 }
