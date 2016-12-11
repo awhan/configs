@@ -265,7 +265,11 @@ sl () {
 }
 
 
-create_git_repo () {
+create_github_repo () {
     # https://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-opening-br
     curl -u 'awhan' https://api.github.com/user/repos -d '{"name":"'$@'"}'
+}
+
+create_bitbucket_repo () {
+    curl -user awimagic https://api.bitbucket.org/1.0/repositories/ --data name=$@
 }
