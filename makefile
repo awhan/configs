@@ -17,7 +17,7 @@
 
 # I am not there yet but this will have to do for now
 
-all: bash x tmux emacs vim vifm vimperator
+all: bash x tmux emacs vim vifm vimperator surfraw
 
 # vim
 vim: vimrc
@@ -80,9 +80,14 @@ vifm: vifmrc
 vifmrc: ~/.vifm/vifmrc.ts
 ~/.vifm/vifmrc.ts: vifm/vifmrc
 
+# surfraw
+surfraw: ~/.config/surfraw/conf.ts
+~/.config/surfraw/conf.ts: surfraw/conf
+
 
 # general recipe for all targets
 %.ts:
+	mkdir -p $(dir $*) 	# in case path does not exist
 	ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
 	touch $@
 

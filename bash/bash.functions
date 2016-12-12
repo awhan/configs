@@ -276,4 +276,5 @@ create_bitbucket_repo () {
         return 1
     fi
     curl --user awimagic https://api.bitbucket.org/1.0/repositories/ --data name=$@
+    printf 'git clone git@bitbucket.org:awimagic/<repo_name>.git'
 }
