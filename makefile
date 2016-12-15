@@ -1,7 +1,7 @@
 # specs
 
-# no output target is to be produced just linked with the source, we
-# will take care of timestamps using the .ts hack
+# no output target is to be produced, it should be linked with the
+# source, we will take care of timestamps using the .ts hack
 
 # want to name all the rules - i don't want to say "make ~/.vimrc", i
 # would much prefer an easier name like "make vimrc"
@@ -18,6 +18,14 @@
 # I am not there yet but this will have to do for now
 
 all: bash x tmux emacs vim vifm vimperator surfraw
+
+
+# vimperator
+vimperator: vimperatorrc
+
+vimperatorrc: ~/.vimperatorrc.ts
+~/.vimperatorrc.ts: vimperator/vimperatorrc
+
 
 # vim
 vim: vimrc
