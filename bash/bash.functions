@@ -44,7 +44,7 @@ pacss () {
     pacman --color=always -Ss "$@" | less -ErX
 }
 
-q () {
+pacq () {
     for e in "$@"; do
 	printf "$e\n"
 	#pacman --color=always -Qs "$e" # why 's' takes more time
@@ -53,7 +53,7 @@ q () {
     done
 }
 
-ql () {
+pacql () {
     pacman --color=always -Qlq "$@" | less -ErX
 }
 
@@ -257,10 +257,15 @@ gitroot () {
 }
 
 
-sl () {
-    # just like 'ql' list files of package that is not installed yet
+pacsl () {
+    # just like 'pacql' list files of package that is not installed yet
+
+    local repo
+    repo=$(pacman -S --print-format '%r' "$1") || return 1
+
     local url
-    printf -v url 'https://www.archlinux.org/packages/community/x86_64/%s/files/' "$1"
+    printf -v url 'https://www.archlinux.org/packages/%s/x86_64/%s/files/' "${repo}" "$1"
+
     curl -s ${url} | grep -F 'li class' | w3m -dump -T 'text/html'
 }
 
