@@ -53,7 +53,6 @@ alias qm='pacman --color=always -Qm'
 alias qqet='pacman --color=always -Qqet' # uneeded + explicit
 alias qg='pacman --color=always -Qgq' # query group
 
-alias si='pacman --color=always -Si'
 alias sii='pacman --color=always -Sii'
 
 alias rnss='sudo pacman --color=always -Rnss'
