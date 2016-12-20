@@ -256,6 +256,13 @@ gitroot () {
     cd $(git rev-parse --show-toplevel)
 }
 
+gitconfig () {
+    set -x
+    git config --local user.email 'awimagic@gmail.com'
+    git config --local user.name 'awhan'
+    set +x
+}
+
 
 sl () {
     # just like 'ql' list files of package that is not installed yet
