@@ -265,6 +265,9 @@ gitconfig () {
 
 
 sl () {
+    printf 'use "pkgfile -l" instead'
+    return
+    
     # just like 'ql' list files of package that is not installed yet
 
     local repo

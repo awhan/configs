@@ -47,3 +47,7 @@ Fig.splash: false
 
 !URxvt.font: 9x15bold
 URxvt.font: xft:DejaVu Sans Mono
+
+! for urxvt transparency
+urxvt*depth: 32
+urxvt*background:           rgba:0000/0000/0000/0000

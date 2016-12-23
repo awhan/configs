@@ -68,5 +68,5 @@ alias val='valgrind -v --leak-check=full \
 alias prod='ssh prod@paws'
 
 # make capslock key an additional control
-alias caps2control='setxbmap -option ctrl:nocaps'
+alias caps2control='setxkbmap -option ctrl:nocaps'
 # vim: ft=sh
