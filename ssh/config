@@ -1,0 +1,12 @@
+Host bitbucket.org-awhan@predictika
+     HostName bitbucket.org
+     user git
+     IdentityFile ~/.ssh/id_rsa_predictika
+     IdentitiesOnly yes
+
+
+Host bitbucket.org-awimagic
+     HostName bitbucket.org
+     user git
+     IdentityFile ~/.ssh/id_rsa
+     IdentitiesOnly yes
