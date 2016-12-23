@@ -11,7 +11,7 @@ source ~/.bash.functions
 # https://raw.githubusercontent.com/paoloantinori/hhighlighter/master/h.sh
 source ~/.h.sh
 
-source /usr/share/git/completion/git-prompt.sh
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 TITLEBAR="\e]2\u@\h:\w\a"
 PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s)")\n\$ '
