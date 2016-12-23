@@ -1,4 +1,7 @@
-IdentitiesOnly yes
+Host *
+     IdentitiesOnly yes
+     IdentityFile ~/.ssh/id_rsa
+
 
 Host bitbucket.org-awhan@predictika
      HostName bitbucket.org
