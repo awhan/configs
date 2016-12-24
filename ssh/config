@@ -1,9 +1,7 @@
-Host *
-     IdentitiesOnly yes
-     IdentityFile ~/.ssh/id_rsa
+IdentitiesOnly yes
 
 
-Host bitbucket.org-awhan@predictika
+Host bitbucket.org-awhan
      HostName bitbucket.org
      user git
      IdentityFile ~/.ssh/id_rsa_predictika
