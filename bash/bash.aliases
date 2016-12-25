@@ -69,4 +69,11 @@ alias prod='ssh prod@paws'
 
 # make capslock key an additional control
 alias caps2control='setxkbmap -option ctrl:nocaps'
+
+# docker related
+alias drm='docker rm $(docker ps -a -q -f status=exited)'
+alias drmi='docker rmi $(docker images -q -f dangling=true)'
+
 # vim: ft=sh
+
+
