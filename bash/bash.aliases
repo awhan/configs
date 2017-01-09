@@ -71,8 +71,10 @@ alias prod='ssh prod@paws'
 alias caps2control='setxkbmap -option ctrl:nocaps'
 
 # docker related
-alias drm='docker rm $(docker ps -a -q -f status=exited)'
-alias drmi='docker rmi $(docker images -q -f dangling=true)'
+alias docrm='docker rm $(docker ps -a -q -f status=exited)'
+alias docrmi='docker rmi $(docker images -q -f dangling=true)'
+alias doci='docker images'
+alias docps='docker ps -a'
 
 # vim: ft=sh
 
