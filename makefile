@@ -17,7 +17,7 @@
 
 # I am not there yet but this will have to do for now
 
-all: bash x tmux emacs vim vifm vimperator surfraw ssh
+all: bash x tmux emacs vim vifm vimperator surfraw ssh cower
 
 
 # vimperator
@@ -95,6 +95,10 @@ surfraw: ~/.config/surfraw/conf.ts
 # ssh
 ssh: ~/.ssh/config.ts
 ~/.ssh/config.ts: ssh/config
+
+# cower
+cower: ~/.config/cower/config.ts
+~/.config/cower/config.ts: cower/config
 
 
 # general recipe for all targets
