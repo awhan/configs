@@ -23,7 +23,12 @@ PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s - $(git rev-parse --short HEAD 2>/d
 #export PROMPT_COMMAND='history -a; history -n; history -w'
 #export PROMPT_COMMAND="$PROMPT_COMMAND; history -a; history -n; history -w"
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="pwd:ls:cd:l:e:yy:yu:history:tmux:lrt:cls"
+
+#export HISTIGNORE="pwd:ls:cd:l:e:yy:yu:history:tmux:lrt:cls" I think
+# using HISTIGNORE is not such a good thing. Sometimes I want to see
+# what was the previous command for whatever the reason. I think a
+# better approach is to prune the history later.
+
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 HISTTIMEFORMAT='%F %T  '
@@ -41,5 +46,5 @@ export LESSOPEN='|src-hilite-lesspipe.sh %s'
 export LESS='-R'
 
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
-
+export PYTHONPATH=${PYTHONPATH}:~/work/predictika/predictibot.com/pbot
 # vim: ft=sh syn=sh
