@@ -76,6 +76,9 @@ alias docrmi='docker rmi $(docker images -q -f dangling=true)'
 alias doci='docker images'
 alias docps='docker ps -a'
 
+alias i='ipython'
+alias ii='ipython -i'
+
 # vim: ft=sh
 
 

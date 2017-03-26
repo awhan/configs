@@ -145,3 +145,7 @@
 ;; when I modified nginx.conf the old settings were being read because
 ;; of a 'include /etc/sites-enabled/*' in /etc/nginx/nginx.conf file
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
+
+
+(require 'ox-odt)
+(require 'ox-md)
