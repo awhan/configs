@@ -78,6 +78,7 @@ alias docps='docker ps -a'
 
 alias i='ipython'
 alias ii='ipython -i'
+alias p='python'
 
 # vim: ft=sh
 
