@@ -263,6 +263,10 @@ gitconfig () {
     set +x
 }
 
+wip () {
+    git commit -a --amend -C HEAD
+}
+
 
 sl () {
     printf 'use "pkgfile -l" instead'
