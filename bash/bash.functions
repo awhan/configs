@@ -263,7 +263,8 @@ gitconfig () {
     set +x
 }
 
-wip () {
+
+gitca () {
     git commit -a --amend -C HEAD
 }
 

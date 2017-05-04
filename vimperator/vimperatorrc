@@ -5,6 +5,8 @@ set focuscontent
 
 style -name x chrome://*  #ab_button { color: red; !important; }
 
+set editor='xterm -e vim'
+
 source! /home/m/.vimperatorrc.local
 
 " vim: set ft=vimperator:
