@@ -13,6 +13,8 @@
 ;; initialize installed packages
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/elpa")
+
 ;; ;; http://auto-complete.org/
 ;; ;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20150408.1132")
 ;; ;;(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-20150408.1132/dict")
@@ -127,7 +129,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile helm yaml-mode fill-column-indicator evil elpy))))
+    (markdown-mode magit projectile helm yaml-mode fill-column-indicator evil elpy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -149,3 +151,8 @@
 
 (require 'ox-odt)
 (require 'ox-md)
+
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8-unix)

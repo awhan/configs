@@ -46,5 +46,13 @@ export LESSOPEN='|src-hilite-lesspipe.sh %s'
 export LESS='-R'
 
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
+
+# PDTK 
 export PYTHONPATH=${PYTHONPATH}:~/work/predictika/predictibot.com/pbot
+#export MODE=DEV
+export MODE=TEST
+export NLTK_DATA=/usr/share/nltk_data
+export PBOT_DOMAIN=localhost
+export PDTK_HOME=~/work/predictika/predictibot.com
+
 # vim: ft=sh syn=sh

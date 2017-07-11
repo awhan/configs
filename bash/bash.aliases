@@ -71,14 +71,17 @@ alias prod='ssh prod@paws'
 alias caps2control='setxkbmap -option ctrl:nocaps'
 
 # docker related
-alias docrm='docker rm $(docker ps -a -q -f status=exited -f status=created)'
-alias docrmi='docker rmi $(docker images -q -f dangling=true)'
-alias doci='docker images'
-alias docps='docker ps -a'
+alias drm='docker rm $(docker ps -a -q -f status=exited -f status=created)'
+alias drmi='docker rmi $(docker images -q -f dangling=true)'
+alias dim='docker images'
+alias dps='docker ps -a'
 
 alias i='ipython'
 alias ii='ipython -i'
 alias p='python'
+
+alias i3='~/pbot-venv/bin/ipython -i'
+alias p3='~/pbot-venv/bin/python'
 
 # vim: ft=sh
 

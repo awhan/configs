@@ -303,3 +303,8 @@ make_bitbucket_repo () {
 yaml_check() {
     python -c 'import yaml, sys; yaml.load(sys.stdin)' < $1
 }
+
+
+drun() {
+    docker run --rm -it $1 sh
+}
