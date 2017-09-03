@@ -17,7 +17,7 @@
 
 # I am not there yet but this will have to do for now
 
-all: bash x tmux emacs vim vifm vimperator surfraw ssh cower
+all: bash x tmux emacs vim vifm vimperator surfraw ssh cower bin
 
 
 # vimperator
@@ -101,11 +101,18 @@ cower: ~/.config/cower/config.ts
 ~/.config/cower/config.ts: cower/config
 
 
+# bin
+bin: sw enchant
+
+sw: ~/.local/bin/sw.ts
+~/.local/bin/sw.ts: bin/sw
+
+
 # general recipe for all targets
 %.ts:
-	mkdir -p $(dir $*) 	# in case path does not exist
-	ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
-	touch $@
+	@mkdir -p $(dir $*) 	# in case path does not exist
+	@ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
+	@touch $@
 
 
 print-%:; echo $* = $($*)
