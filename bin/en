@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+import enchant
+import sys
+
+d = enchant.Dict('en_US')
+print(d.tag)
+print(d.provider)
+
+for w in sys.argv[1:]:
+    if d.check(w):
+        print(w, 'is a known word')
+        print(d.suggest(w))

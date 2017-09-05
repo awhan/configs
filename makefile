@@ -102,10 +102,13 @@ cower: ~/.config/cower/config.ts
 
 
 # bin
-bin: sw enchant
+bin: sw en
 
 sw: ~/.local/bin/sw.ts
 ~/.local/bin/sw.ts: bin/sw
+
+en: ~/.local/bin/en.ts
+~/.local/bin/en.ts: bin/en
 
 
 # general recipe for all targets
