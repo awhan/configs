@@ -10,4 +10,5 @@ print(d.provider)
 for w in sys.argv[1:]:
     if d.check(w):
         print(w, 'is a known word')
+    else:
         print(d.suggest(w))
