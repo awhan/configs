@@ -117,7 +117,6 @@
 ;; (ansi-color-for-comint-mode-on)         
 (ansi-color-for-comint-mode-on)
 
-
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; https://www.emacswiki.org/emacs/FillColumnIndicator
@@ -129,7 +128,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode magit projectile helm yaml-mode fill-column-indicator evil elpy))))
+    (dockerfile-mode markdown-mode magit projectile helm yaml-mode fill-column-indicator evil elpy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

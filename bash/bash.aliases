@@ -83,6 +83,7 @@ alias p='python'
 alias i3='~/pbot-venv/bin/ipython -i'
 alias p3='~/pbot-venv/bin/python'
 
+alias ag='ag --color-line-number "30;43"'
 # vim: ft=sh
 
 

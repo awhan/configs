@@ -12,7 +12,7 @@ source ~/.bash.functions
 source ~/.h.sh
 
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWSTASHSTATE=1
 TITLEBAR="\e]2\u@\h:\w\a"
 PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s)")\n\$ '
 PS1='\e]2\u@\h:\w\a\u@\h \w$(__git_ps1 " (%s - $(git rev-parse --short HEAD 2>/dev/null))")\n\$ '
