@@ -312,3 +312,13 @@ drun() {
 wait_for_internet() {
     while ! nc -z www.google.com 80; do sleep 10; done && while true; do espeak back 2>&1; sleep 5; done
 }
+
+
+latime() {
+    TZ='America/Los_Angeles' date +%c
+}
+
+
+pp () {
+    python -c 'import sys; print(sys.path)'
+}
