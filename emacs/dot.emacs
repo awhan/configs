@@ -72,7 +72,8 @@
 (setq org-babel-sh-command "bash")	
 
 ;;(set-default-font "DejaVu Sans Mono-14") ; this does NOT work with emacs --daemon
-(setq default-frame-alist '((font . "DejaVu Sans Mono-14")))
+;;(setq default-frame-alist '((font . "DejaVu Sans Mono-14")))
+(setq default-frame-alist '((font . "DejaVu Sans Mono-16")))
 
 
 ;; mode line settings

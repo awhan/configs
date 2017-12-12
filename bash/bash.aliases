@@ -15,9 +15,9 @@ alias r='rsync -avz --progress'
 
 alias xl='echo "loading ~/.Xresources ..."; xrdb -load ~/.Xresources'
 
-alias l='\ls --color=always'
+alias l='\ls -AF --color=always'
 alias la='\ls -A --color=always'
-alias lrt='\ls --color=always -Ar1t'
+alias lrt='\ls --color=always -AFr1t'
 alias l1='\ls --color=always -A1'
 
 

@@ -54,5 +54,6 @@ export MODE=TEST
 export NLTK_DATA=/usr/share/nltk_data
 export PBOT_DOMAIN=localhost
 export PDTK_HOME=~/work/predictika/predictibot.com
+export PBOT_VENV=${HOME}/pbot-venv
 
 # vim: ft=sh syn=sh

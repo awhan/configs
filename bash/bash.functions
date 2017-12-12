@@ -301,7 +301,7 @@ make_bitbucket_repo () {
 }
 
 yaml_check() {
-    python -c 'import yaml, sys; yaml.load(sys.stdin)' < $1
+    python -c 'import yaml, sys; yaml.safe_load(sys.stdin)' < $1
 }
 
 
