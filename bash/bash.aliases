@@ -57,7 +57,7 @@ alias sii='pacman --color=always -Sii'
 
 alias rnss='sudo pacman --color=always -Rnss'
 # rnss_dry_run() {
-#     \pacman -Rnsspu 
+#     \pacman -Rnsspu
 
 alias val='valgrind -v --leak-check=full \
 --show-reachable=yes --track-origins=yes'
@@ -71,7 +71,7 @@ alias prod='ssh prod@paws'
 alias caps2control='setxkbmap -option ctrl:nocaps'
 
 # docker related
-alias drm='docker rm $(docker ps -a -q -f status=exited -f status=created)'
+alias drm='docker rm $(docker ps -a -q -f status=exited -f status=created) && dps'
 alias drmi='docker rmi $(docker images -q -f dangling=true)'
 alias dim='docker images'
 alias dps='docker ps -a'

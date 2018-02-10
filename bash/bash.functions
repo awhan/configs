@@ -46,10 +46,10 @@ pacss () {
 
 q () {
     for e in "$@"; do
-	printf "$e\n"
-	#pacman --color=always -Qs "$e" # why 's' takes more time
-	pacman --color=always -Q "$e"
-	printf '\n'
+        printf "$e\n"
+        #pacman --color=always -Qs "$e" # why 's' takes more time
+        pacman --color=always -Q "$e"
+        printf '\n'
     done
 }
 
@@ -60,9 +60,9 @@ ql () {
 
 # e () {
 #     if [[ $# -eq 0 ]]; then
-# 	emacsclient -a="" -nc &
+#       emacsclient -a="" -nc &
 #     else
-# 	emacsclient -a=" " -n "$@" &
+#       emacsclient -a=" " -n "$@" &
 #     fi
 # }
 
@@ -79,14 +79,14 @@ mkcd() { mkdir -p "$@" && cd "$_"; }
 
 man() {
     env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
 }
 
 
@@ -129,11 +129,11 @@ fix() {
 
     if [[ $fix_fn == $fix_ext ]];
     then
-	# no extension
-	local fix_newname="$fix_fn"
+        # no extension
+        local fix_newname="$fix_fn"
     else
-	# has extension
-	fix_newname="$fix_fn.$fix_ext"
+        # has extension
+        fix_newname="$fix_fn.$fix_ext"
     fi
 
     echo "new :: $fix_newname"
@@ -141,7 +141,7 @@ fix() {
     read -p 'change name (y/n)? '
     if [[ $REPLY == y ]];
     then
-	mv -iv "$1" "$fix_newname"
+        mv -iv "$1" "$fix_newname"
     fi
 }
 
@@ -168,15 +168,15 @@ backnew() {
     backnew_filename=$(basename $@)
     #echo $backnew_filename_$(today)
     if [[ -f $@ ]]; then
-	cp -piv $@ /home/m/pacnew/"$backnew_filename"_$(today)
+        cp -piv $@ /home/m/pacnew/"$backnew_filename"_$(today)
     else
-	echo "not found"
+        echo "not found"
     fi
 
     if [[ -f $@.pacnew ]]; then
-	cp -piv $@.pacnew /home/m/pacnew/"$backnew_filename".pacnew_$(today)
+        cp -piv $@.pacnew /home/m/pacnew/"$backnew_filename".pacnew_$(today)
     else
-	echo ".pacnew not found"
+        echo ".pacnew not found"
     fi
 }
 
@@ -184,8 +184,8 @@ yb () {
     #set -x
     # without any 'format' argument it downloads the best version
     youtube-dl -o '%(title)s-%(id)s-[%(uploader)s].%(ext)s' --no-mtime --no-overwrites \
-	--write-sub --sub-lang 'en' \
-	--restrict-filenames --continue "$@" ;
+        --write-sub --sub-lang 'en' \
+        --restrict-filenames --continue "$@" ;
     #set +x
 }
 
@@ -272,7 +272,7 @@ gitca () {
 sl () {
     printf 'use "pkgfile -l" instead'
     return
-    
+
     # just like 'ql' list files of package that is not installed yet
 
     local repo
@@ -319,6 +319,6 @@ latime() {
 }
 
 
-pp () {
-    python -c 'import sys; print(sys.path)'
+xrdb_reset () {
+    xrdb -remove -all && xrdb -merge ~/.Xresources
 }

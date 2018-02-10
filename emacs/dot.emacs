@@ -9,7 +9,7 @@
 ;; http://melpa.org/#/getting-started
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 ;; initialize installed packages
 (package-initialize)
 
@@ -40,10 +40,10 @@
 
 
 (tool-bar-mode -1)
-;;https://www.gnu.org/software/emacs/manual/html_node/emacs/Display-Custom.html#Display-Custom 
+;;https://www.gnu.org/software/emacs/manual/html_node/emacs/Display-Custom.html#Display-Custom
 (setq echo-keystrokes 0.1)
 
-
+;; highlight current line
 (global-hl-line-mode 1)
 
 
@@ -69,11 +69,10 @@
    (latex . t)
    ))
 
-(setq org-babel-sh-command "bash")	
+(setq org-babel-sh-command "bash")
 
 ;;(set-default-font "DejaVu Sans Mono-14") ; this does NOT work with emacs --daemon
-;;(setq default-frame-alist '((font . "DejaVu Sans Mono-14")))
-(setq default-frame-alist '((font . "DejaVu Sans Mono-16")))
+(setq default-frame-alist '((font . "DejaVu Sans Mono-14")))
 
 
 ;; mode line settings
@@ -112,10 +111,19 @@
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 
 (elpy-enable)
-(elpy-use-ipython)
+;(elpy-use-ipython)
 
+;; ;; https://github.com/jorgenschaefer/elpy/issues/992
+;; (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
 
-;; (ansi-color-for-comint-mode-on)         
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
+
+;; ;; why the following does not work? TODO
+;; (setq python-shell-interpreter "jupyter"
+;;       python-shell-interpreter-args "console --simple-prompt")
+
+;; (ansi-color-for-comint-mode-on)
 (ansi-color-for-comint-mode-on)
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -159,3 +167,18 @@
 
 ;; remember cursor position in file
 (save-place-mode 1)
+
+;; https://www.emacswiki.org/emacs/DeletingWhitespace
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;;http://batsov.com/articles/2011/11/25/emacs-tip-number-3-whitespace-cleanup/
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; scratch buffer config
+(setq initial-scratch-message nil)
+(setq initial-major-mode 'org-mode)
+
+
+;; fuzzy isearch
+;; https://www.reddit.com/r/emacs/comments/3yxk2x/flexible_isearch_without_a_package/
+(setq search-whitespace-regexp ".*?")

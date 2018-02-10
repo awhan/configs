@@ -40,7 +40,7 @@ shopt -s checkwinsize
 shopt -s histverify
 #export EDITOR=~/bin/e
 
-PATH=$PATH:~/.local/bin:~/anaconda3/bin
+PATH=$PATH:~/.local/bin:~/miniconda3/bin
 
 export LESSOPEN='|src-hilite-lesspipe.sh %s'
 export LESS='-R'
@@ -48,12 +48,17 @@ export LESS='-R'
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ap_root/lib
 
 # PDTK
-export PYTHONPATH="${PYTHONPATH}:${HOME}/work/predictika/predictibot.com/pbot"
 #export MODE=DEV
 export MODE=TEST
-export NLTK_DATA=/usr/share/nltk_data
+# export NLTK_DATA=/usr/share/nltk_data
+export NLTK_DATA=${HOME}/nltk_data
 export PBOT_DOMAIN=localhost
 export PDTK_HOME=~/work/predictika/predictibot.com
+export PYTHONPATH="${PYTHONPATH}:${PDTK_HOME}/pbot"
 export PBOT_VENV=${HOME}/pbot-venv
+export PBOT_NGINX_SSL=~/work/predictika/pbot/nginx_ssl
+export PBOT_LETSENCRYPT=~/work/predictika/pbot/letsencrypt
+export PBOT_PYTHON=~/miniconda3/envs/pbot/bin/python
+alias pp=${PBOT_PYTHON}
 
 # vim: ft=sh syn=sh

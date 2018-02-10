@@ -113,10 +113,9 @@ en: ~/.local/bin/en.ts
 
 # general recipe for all targets
 %.ts:
-	@mkdir -p $(dir $*) 	# in case path does not exist
+	@mkdir -p $(dir $*)	# in case path does not exist
 	@ln -fsv --suffix=.backup__$$(date +%F_%T) $(realpath $<) $*
 	@touch $@
 
 
 print-%:; echo $* = $($*)
-
