@@ -249,7 +249,14 @@ update_mirrors() {
 # }
 
 lo () {
-    locate -Ai --regex "$@" | nl | h -i "$@"
+    # https://raw.githubusercontent.com/paoloantinori/hhighlighter/master/h.sh
+    #locate -Ai --regex "$@" | nl | h -i "$@"
+    locate -Ai --regex "$@" |
+        while IFS= read -r f; do
+            stat --format='%n %y' "$f"
+        done |
+        nl |
+        h -i "$@"
 }
 
 gitroot () {
